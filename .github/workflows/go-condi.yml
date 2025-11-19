@@ -14,7 +14,7 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.21'
-
+        cache-dependency-path: otel/go.sum
     - name: Build
       run: go build -v hi.go
 
@@ -22,6 +22,6 @@ jobs:
       if: github.event.pullrequest.base.ref == 'master'
       run: echo "Deploying to production"
 
-    - name: Deploy to production
+    - name: Deploy to stage
       if: github.event.pullrequest.base.ref != 'master'
       run: echo "Deploying to staging"    
