@@ -1,0 +1,27 @@
+name: Go Conditional Execution
+
+on:
+ pull_request:
+   branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Build
+      run: go build -v hi.go
+
+    - name: Deploy to production
+      if: github.event.pullrequest.base.ref == 'master'
+      run: echo "Deploying to production"
+
+    - name: Deploy to production
+      if: github.event.pullrequest.base.ref != 'master'
+      run: echo "Deploying to staging"    
