@@ -10,7 +10,7 @@ import (
 
 func main() {
 	//Set listening port
-	
+
 	port := 9898
 	if len(os.Args) > 1 {
 		var err error
@@ -19,7 +19,7 @@ func main() {
 			log.Fatal(err)
 		}
 	}
-	//Find default output IP and hostname
+	//Find default output IP and hostname cvbvcbvccvb
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
 		log.Fatal(err)
