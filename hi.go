@@ -20,6 +20,7 @@ func main() {
 		}
 	}
 	//Find default output IP and hostname cvbvcbvccvb
+	
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
 		log.Fatal(err)
