@@ -22,6 +22,6 @@ jobs:
       if: github.event.pullrequest.base.ref == 'master'
       run: echo "Deploying to production"
 
-    - name: Deploy to production
+    - name: Deploy to stage
       if: github.event.pullrequest.base.ref != 'master'
       run: echo "Deploying to staging"    
