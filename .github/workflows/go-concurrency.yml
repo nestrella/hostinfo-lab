@@ -22,7 +22,19 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.21'
-        cache: true
+        cache: false
+        
+    - name: Generate go.sum
+      run: |
+        if [ ! -f "go.sum" ]; then
+          go mod tidy
+        fi    
+    - name: Setup Go with cache
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+        cache: true  # Ahora sí activamos el caché    
+        
     - name: Build
       run: go build -v hi.go
 
