@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	//Set listening port
+	//Set listening portfgfdsdfgfgd
 
 	port := 9898
 	if len(os.Args) > 1 {
@@ -20,7 +20,7 @@ func main() {
 		}
 	}
 	//Find default output IP and hostname cvbvcbvccvb
-	
+
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
 		log.Fatal(err)
