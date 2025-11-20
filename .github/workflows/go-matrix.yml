@@ -9,14 +9,18 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os:[ubunty-latest, ubuntu-22.04, ubuntu-24.04]
+        go-version: ['1.19', '1.20', '1.21']
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Go
+    - name: Set up Go ${{matrix.os}}
       uses: actions/setup-go@v4
       with:
-        go-version: '1.21'
+        go-version: ${{matrix.os}}
         cache-dependency-path: otel/go.sum
         
     - name: Build
