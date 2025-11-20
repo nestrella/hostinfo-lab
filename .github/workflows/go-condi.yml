@@ -19,9 +19,9 @@ jobs:
       run: go build -v hi.go
 
     - name: Deploy to production
-      if: github.event.pullrequest.base.ref == 'master'
+      if: github.event.pull_request.base.ref == 'master'
       run: echo "Deploying to production"
 
     - name: Deploy to stage
-      if: github.event.pullrequest.base.ref != 'master'
+      if: github.event.pull_request.base.ref != 'master'
       run: echo "Deploying to staging"    
