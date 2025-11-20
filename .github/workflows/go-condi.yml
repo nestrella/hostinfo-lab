@@ -23,6 +23,7 @@ jobs:
       run: go test -v hi.go
 
   deploy:
+    needs: pr_check
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
